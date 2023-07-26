@@ -183,7 +183,7 @@ footer {
 .footer__cards__text {
     text-align: left;
     font-size: 14px;
-    font-family: Roboto;
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -264,6 +264,83 @@ footer {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+.services {
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.services__span {
+    color: #46B1DE;
+    font-family: 'Roboto';
+    font-size: 34px;
+    font-style: normal;
+    line-height: normal;
+    }
+.wrapper__wrapper {
+    position: relative;
+    max-width: 1020px;
+    /* border: 1px solid black; */
+    height: fit-content;
+    margin: 10px auto;
+}
+.wrapper__wrapper__row-1,
+.wrapper__wrapper__row-2,
+.wrapper__wrapper__row-3 {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+.wrapper__wrapper__row-1,
+.wrapper__wrapper__row-3 {
+    padding: 10px 45px;
+}
+.wrapper__wrapper__tooth {
+    position: absolute;
+    box-sizing: border-box;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.wrapper__wrapper__services-1,
+.wrapper__wrapper__services-2 {
+    max-width: 300px;
+    height: 130px;
+}
+.wrapper__wrapper__services-1 {
+    text-align: right;
+}
+.wrapper__wrapper__services__span {
+    color: #46B1DE;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+}
+.wrapper__wrapper__services__p {
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.attention {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    color: #46B1DE;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 28px */
+}
+.attention > img {
+    margin-right: 16px;
 }
 .appointment-container {
     width: 800px;
@@ -479,8 +556,72 @@ footer {
     header {
         padding: 50px 50px;
     }
-    
+    .wrapper__wrapper__tooth {
+        display: none;
+    }
+    .wrapper__wrapper__row-1,
+    .wrapper__wrapper__row-3 {
+        padding: 0px;
+    }
+    .wrapper__wrapper__row-1,
+    .wrapper__wrapper__row-2,
+    .wrapper__wrapper__row-3 {
+        justify-content: space-around;
+        margin: 10px;
+    }
+    .wrapper__wrapper__services-1,
+    .wrapper__wrapper__services-2 {
+        margin: 20px;
+    }
+    .appointment-container {
+        width: auto;
+        min-height: 365px;
+        margin: 50px auto;
+    }
+    .appointment-form {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: calc(100% - 10px);
+        height: min-content;
+    }
+    .appointment-form__h1 {
+        font-size: 30px;
+    }
+    .appointment-form__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin: 10px auto;
+    }
+    .photos {
+        display: flex;
+        flex-direction: column;
+        width: max-content;
+        margin: 0 auto 100px;
+    }
+    .photos > img {
+        padding: 10px 30px;
+    }
+    .third-screen {
+        height: max-content;
+        width: auto;
+        background: linear-gradient(to bottom, #A0C8D4, #0781AA);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
+@media(min-width: 481px) and (max-width: 1048px) {
+    .first-screen__lady {
+        display: none;
+    }
+}
+
 @media(max-width: 480px) {
     .first-screen__nav {
         display: none;
@@ -596,7 +737,7 @@ footer {
         margin: 0 auto;
     }
     .photos {
-        display: none;
+        flex-direction: column;
     }
     .appointment-container {
         width: auto;
@@ -634,5 +775,10 @@ footer {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    .wrapper__wrapper__services-1,
+    .wrapper__wrapper__services-2 {
+        max-width: 300px;
+        height: min-content;
     }
 }
