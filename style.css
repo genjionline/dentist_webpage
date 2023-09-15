@@ -73,20 +73,73 @@ a {
     background-image: url(./image/phone.svg);
     background-size: contain;
 }
+.third-screen__info__services__item__en::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 30px;
+    width: 1px;
+    height: 20px;
+    background-color: black;
+}
+/* .third-screen__contacts__links::before {
+    content: "";
+    position: absolute;
+    top: 180px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    background-image: url(./image/phone.png);
+    background-size: contain;
+}
+.third-screen__contacts__inst::before {
+    content: "";
+    position: absolute;
+    bottom: 70px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    background-image: url(./image/instagram.png);
+    background-size: contain;
+}
+.third-screen__contacts__email::before {
+    content: "";
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    background-image: url(./image/email.png);
+    background-size: contain;
+} */
+.third-screen__contacts__links::after {
+    content: "";
+    display: block;
+    border-bottom: 1px solid transparent;
+    width: 100%;
+    margin-top: 2px;  
+}
+.third-screen__contacts__links:hover::after {
+    border-color: #ffffff;
+}
+.third-screen__info__services > div > a:hover {
+    color: #ffffff;
+}
 .first-screen__phone,
 .first-screen__switch-lang {
     margin-top: 20px;
 }
-.first-screen__switch-lang:first-child {
+.first-screen__switch-lang__ua {
     position: relative;
+    padding-right: 10px;
 }
-.first-screen__switch-lang:first-child::before {
+.first-screen__switch-lang__ua:before {
     content: "";
     position: absolute;
-    top: 50%;
-    left: -15px;
+    top: 0;
+    left: 30px;
     width: 1px;
-    height: 7px;
+    height: 20px;
     background-color: black;
 }
 header {
@@ -420,9 +473,8 @@ footer {
     align-items: center;
     padding: 10px;
 }
-.appointment-form__container__item-name > form > input:focus,
-.appointment-form__container__item-number:focus,
-.appointment-form__container__item-signup:focus {
+.input__name:focus,
+.input__number:focus {
     width: 200px;
     height: 50px;
     border: 2px solid #46B1DE;
