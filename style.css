@@ -10,7 +10,7 @@ body {
     font-family: 'Roboto';
 }
 .burger {
-    display: none;
+    /* display: none; */
     height: 20px;
     width: 20px;
     position: relative;
@@ -58,7 +58,11 @@ body {
     transform: translateY(-5px) rotate(-45deg);
     bottom: 0;
 }
-
+.burger:hover span,
+.burger:hover span::before,
+.burger:hover span::after {
+    background-color: #46B1DE;
+}
 .first-screen__logo {
     color: #46B1DE;
     font-family: 'Sofia Sans';
