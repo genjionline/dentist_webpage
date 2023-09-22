@@ -61,6 +61,56 @@
 //     alert(`${number} by 12 equals ${number * 12}`);
 // }
 
-for (let i = 2; i <= 50; i += 2) {
-    console.log(i);
+// for (let i = 2; i <= 50; i += 2) {
+//     console.log(i);
+// }
+
+// 21
+
+// let a = prompt('Type "a" number');
+// let b = prompt('Type "b" number');
+// function maxNumber (a, b) {
+//     if (+a > +b) {
+//         return a;
+//     } else if (+b > +a) {
+//         return b;
+//     } else if (+a === +b) {
+//         return ('a = b');
+//     }
+// }
+// alert (maxNumber(a,b));
+
+// let number = prompt('Enter the number');
+// function reverse(number) {
+//     if (+number >= 0) {
+//         return -number;
+//     } else {
+//         return -number;
+//     }
+// }
+// alert(reverse(number));
+
+// let number = prompt ('Enter number');
+// let count = prompt('Enter count');
+// function three(number,count) {
+//     return number + 3 * count;
+// }
+// alert (three(+number, +count));
+
+
+function KmToM(km) {
+    return km * 1000;
 }
+function KmToCm(km) {
+    return km * 100000;
+}
+function getMetric(metric, km, m, cm) {
+    if (metric === "m") {
+        return m(km);
+    } else if (metric === "cm") {
+        return cm(km);
+    }
+}
+let km = prompt ('Enter km distance');
+let metric = prompt('Enter m or cm');
+alert (getMetric(metric, km, KmToM, KmToCm));
