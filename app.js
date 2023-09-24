@@ -98,19 +98,79 @@
 // alert (three(+number, +count));
 
 
-function KmToM(km) {
-    return km * 1000;
-}
-function KmToCm(km) {
-    return km * 100000;
-}
-function getMetric(metric, km, m, cm) {
-    if (metric === "m") {
-        return m(km);
-    } else if (metric === "cm") {
-        return cm(km);
+// function KmToM(km) {
+//     return km * 1000;
+// }
+// function KmToCm(km) {
+//     return km * 100000;
+// }
+// function getMetric(metric, km, m, cm) {
+//     if (metric === "m") {
+//         return m(km);
+//     } else if (metric === "cm") {
+//         return cm(km);
+//     }
+// }
+// let km = prompt ('Enter km distance');
+// let metric = prompt('Enter m or cm');
+// alert (getMetric(metric, km, KmToM, KmToCm));
+
+// 22
+
+// let car = {
+//     model: "chevrolet",
+//     year: 1967,
+//     color: "black",
+//     signal: function (){
+//         alert('fa! fa!');
+//     },
+// }
+// car.type = "electric";
+// console.log(car);
+// car.signal ();
+
+// let salaries = {
+//     frontend: 12000,
+//     backend: 10000,
+//     designer: 8000,
+//     dayPay() {
+//         alert('We must pay salary on Tuesday!');
+//     },
+//     total() {
+//         let sum = 0;
+//         for (let key in this) {
+//             if (typeof this[key] === 'number') {
+//                 sum += this[key];
+//             }
+//         }
+//         console.log(sum);
+//     }
+// };
+// salaries.total();
+// salaries.manager = 5000;
+// salaries.total();
+
+function Laptop (brand, system, cost) {
+    this.brand = brand;
+    this.system = system;
+    this.cost = cost;
+    this[Symbol.toPrimitive] = function (hint){
+        console.log(hint); // 2*default, string, 2*number, number, number, string
+        switch(hint){
+            case 'string':
+                return this.brand
+            case 'number':
+                return this.cost
+            case 'default':
+                return this.brand + ' ' + this.system + ' ' + this.cost + '//'
+        }
     }
+
 }
-let km = prompt ('Enter km distance');
-let metric = prompt('Enter m or cm');
-alert (getMetric(metric, km, KmToM, KmToCm));
+let dell = new Laptop ('Dell', 'windows', '800');
+let apple = new Laptop ('Apple', 'MAC OS', '1700');
+console.log(dell);
+console.log(apple);
+console.log(String(dell));
+console.log(+apple);
+console.log(dell + apple);
