@@ -150,27 +150,77 @@
 // salaries.manager = 5000;
 // salaries.total();
 
-function Laptop (brand, system, cost) {
-    this.brand = brand;
-    this.system = system;
-    this.cost = cost;
-    this[Symbol.toPrimitive] = function (hint){
-        console.log(hint); // 2*default, string, 2*number, number, number, string
-        switch(hint){
-            case 'string':
-                return this.brand
-            case 'number':
-                return this.cost
-            case 'default':
-                return this.brand + ' ' + this.system + ' ' + this.cost + '//'
-        }
-    }
+// function Laptop (brand, system, cost) {
+//     this.brand = brand;
+//     this.system = system;
+//     this.cost = cost;
+//     this[Symbol.toPrimitive] = function (hint){
+//         console.log(hint); // 2*default, string, 2*number, number, number, string
+//         switch(hint){
+//             case 'string':
+//                 return this.brand
+//             case 'number':
+//                 return this.cost
+//             case 'default':
+//                 return this.brand + ' ' + this.system + ' ' + this.cost + '//'
+//         }
+//     }
 
+// }
+// let dell = new Laptop ('Dell', 'windows', '800');
+// let apple = new Laptop ('Apple', 'MAC OS', '1700');
+// console.log(dell);
+// console.log(apple);
+// console.log(String(dell));
+// console.log(+apple);
+// console.log(dell + apple);
+
+// 23
+
+// let users = ['Mike', 'Nikola', 'Tom']
+// console.log(users[2]);
+
+// let a = [5, 3, -4, 25, 32, -16, 6];
+// let b = [21, -30, 9, 5, 12, -19, 5, 25];
+// function compare (a, b) {
+//     for (let i = 0; i < a.length; i++) {
+//         if (a[i] > b[i]) {
+//             return 'a > b';
+//         } else if (a[i] < b[i]) {
+//             return 'a < b';
+//         } else return 'a = b';
+//     }
+// }
+// console.log(compare(a, b));
+
+// let phrase = 'I am learning Javascript right now';
+// let arr = phrase.split(' ');
+// console.log(arr);
+
+// let a = [5, 3, 8, 5, 3, 2, 1, 2];
+// let b = [];
+// a.forEach(function(element) {
+//     if (!b.includes(element)) {
+//         b.push(element);
+//     }
+// });
+// console.log(b);
+
+let users = [{id: 1, age: 17},
+            {id: 2, age: 18},
+            {id: 3, age: 19},
+            {id: 4, age: 21},
+            {id: 5, age: 17},
+            {id: 6, age: 20},
+            {id: 7, age: 25},
+];
+function selectionAge(users) {
+    let filteredUsers = users.filter(function(user) {
+        return user.age > 18 && user.age < 21;
+    });
+    let ids = filteredUsers.map(function(user) {
+        return user.id;
+    });
+    console.log(ids.join(', '));
 }
-let dell = new Laptop ('Dell', 'windows', '800');
-let apple = new Laptop ('Apple', 'MAC OS', '1700');
-console.log(dell);
-console.log(apple);
-console.log(String(dell));
-console.log(+apple);
-console.log(dell + apple);
+selectionAge(users);
