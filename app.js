@@ -206,21 +206,116 @@
 // });
 // console.log(b);
 
-let users = [{id: 1, age: 17},
-            {id: 2, age: 18},
-            {id: 3, age: 19},
-            {id: 4, age: 21},
-            {id: 5, age: 17},
-            {id: 6, age: 20},
-            {id: 7, age: 25},
-];
-function selectionAge(users) {
-    let filteredUsers = users.filter(function(user) {
-        return user.age > 18 && user.age < 21;
-    });
-    let ids = filteredUsers.map(function(user) {
-        return user.id;
-    });
-    console.log(ids.join(', '));
-}
-selectionAge(users);
+// let users = [{id: 1, age: 17},
+//             {id: 2, age: 18},
+//             {id: 3, age: 19},
+//             {id: 4, age: 21},
+//             {id: 5, age: 17},
+//             {id: 6, age: 20},
+//             {id: 7, age: 25},
+// ];
+// function selectionAge(users) {
+//     let filteredUsers = users.filter(function(user) {
+//         return user.age > 18 && user.age < 21;
+//     });
+//     let ids = filteredUsers.map(function(user) {
+//         return user.id;
+//     });
+//     console.log(ids.join(', '));
+// }
+// selectionAge(users);
+
+// 24
+
+// 24.1.1)
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// function count(arr, index) {
+//     if (index < arr.length - 1) {
+//         return arr[index] + count(arr, index + 1);
+//     } else {
+//         return arr[index];
+//     }
+// }
+// let result = count(arr, 0);
+// console.log(result);
+
+// 24.1.2)
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// function count(arr, index) {
+//     return index < arr.length - 1 ? arr[index] + count(arr, index + 1) : arr[index];
+// }
+// let result = count(arr, 0);
+// console.log(result);
+
+// 24.2.1)
+// function deepCount(arr) {
+//     let count = 0;   
+//     for (let i = 0; i < arr.length; i++) {
+//         if (Array.isArray(arr[i])) {
+//             count += deepCount(arr[i]);
+//         }
+//     }  
+//     return count;
+// }
+// console.log(deepCount([]));
+// console.log(deepCount([1, 2, 3]));
+// console.log(deepCount(["x", "y", ["z"]]));
+// console.log(deepCount([1, 2, [3, 4, [5]]]));
+// console.log(deepCount([[[[]]]]));
+
+// 24.2.2)
+// function deepCount(arr) {
+//     let count = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//         count += Array.isArray(arr[i]) ? deepCount(arr[i]) : 1;
+//     }
+//     return count;
+// }
+// console.log(deepCount([]));
+// console.log(deepCount([1, 2, 3]));
+// console.log(deepCount(["x", "y", ["z"]]));
+// console.log(deepCount([1, 2, [3, 4, [5]]]));
+// console.log(deepCount([[[[]]]]));
+
+// 24.3
+// let employees = {
+//     development: {
+//     backend: [{name: 'Mike', salary: 2000}, {name: 'Nikola', salary: 2500}],
+//     frontend: [{name: 'Artem', salary: 3000}, {name: 'Alex', salary: 2700}],
+//     },
+//     sales: {
+//     marketing: {
+//     internet_marketers: [{name: 'Nina', salary: 1000}, {name:'Olena', salary: 1300}],
+//     promotion: [{name: 'Oleg', salary: 1400}, {name: 'Masha', salary: 1700}],
+//     },
+//     sellers: [{name: 'Max', salary: 900}, {name: 'Donald', salary: 700},
+//     {name:'Joe', salary: 1100}],
+//     },
+//     designer: [{name: 'Kate', salary: 1800}]
+// }
+// function AnotherSumSalary() {
+// let sum = 0;
+// function sumSalary(obj){
+//     for(let key in obj){
+//         if (Array.isArray(obj[key])) {
+//             obj[key].forEach(employee => sum += employee.salary);
+//         } else {  
+//             sumSalary(obj[key]);
+//         }
+//     }
+// }
+// return function() {
+//     sumSalary(employees);
+//     return sum;
+// };
+// }
+// const calculateSumSalary = AnotherSumSalary();
+// console.log(calculateSumSalary());
+
+// 24.4
+
+// let arr1 = [2, 15, 7, 3];
+// let arr2 = [9, 3, 17, 12, 4, 8];
+// let arr3 = [6, 11, 16, 15, 11];
+// let maxInArrays = Math.max(...arr1, ...arr2, ...arr3);
+// console.log(maxInArrays);
