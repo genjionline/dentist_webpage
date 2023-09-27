@@ -319,3 +319,114 @@
 // let arr3 = [6, 11, 16, 15, 11];
 // let maxInArrays = Math.max(...arr1, ...arr2, ...arr3);
 // console.log(maxInArrays);
+
+// 25.1
+
+// class User { 
+//     #name;
+//     constructor (name,login,age) {
+//         this.#name = name;
+//         this.login = login;
+//         this.age = age;
+//     }
+//     login;
+//     age;
+// }
+// let user1 = new User('Mike', 'MK_18', 18);
+// let user2 = new User('', 'NRG', 22);
+// console.log(user1.login);
+// console.log(user1.age);
+// console.log(user2.login);
+// console.log(user2.age);
+
+// 25.2
+
+// class User { 
+//     #name;
+//     constructor (name,login,age) {
+//         this.#name = name;
+//         this.login = login;
+//         this.age = age;
+//     }
+//     login;
+//     age;
+//     getName(isAdmin) {
+//         return isAdmin ? this.#name : 'Permission denied'
+//     }
+// }
+// let user1 = new User('Mike', 'MK_18', 18);
+// let user2 = new User('', 'NRG', 22);
+// console.log(user1.getName(true));
+// console.log(user2.getName(true));
+// console.log(user2.getName(false));
+
+// 25.3
+
+// class User { 
+//     #name;
+//     constructor (name,login,age) {
+//         this.#name = name;
+//         this.login = login;
+//         this.age = age;
+//     }
+//     login;
+//     age;
+//     getName(isAdmin) {
+//         return isAdmin ? this.#name : 'Permission denied'
+//     }
+//     ChangeName(newName, password) {
+//         if (password === '123') {
+//             const oldName = this.#name;
+//             this.#name = newName;
+//             return `Name changed from ${oldName} to ${newName}`;
+//         } else {
+//             return 'Permission denied';
+//         }
+//     }
+// }
+// let user1 = new User('Mike', 'MK_18', 18);
+// let user2 = new User('', 'NRG', 22);
+// console.log(user1.ChangeName('Bill', '123'));
+
+// 25.4
+
+// class Admin extends User {
+//     #isAdmin = true;
+
+//     constructor(name, login, age) {
+//         super(name, login, age);
+//     }
+
+//     getUserName(user) {
+//         return user.getName(this.#isAdmin);
+//     }
+// }
+// let admin = new Admin('AdminUser', 'admin', 30);
+// console.log(admin.getUserName(user1));
+
+// 25.5
+
+class User {
+    #phone;
+    
+    constructor(name, phone) {
+        this.name = name;
+        this.#phone = phone;
+    }
+    
+    getPhone(isAdmin) {
+        if (isAdmin) {
+            return this.#phone;
+        } else {
+            const parts = this.#phone.split('-');
+            const maskedPhone = `${parts[0]}-******-${parts[parts.length - 1]}`;
+            return maskedPhone;
+        }
+    }
+}
+let user1 = new User('Mike', '067-888-88-99');
+let user2 = new User('Tom', '099-888-88-99');
+console.log(user1.getPhone(false));
+console.log(user2.getPhone(false));
+console.log(user1.getPhone(true));
+console.log(user2.getPhone(true));
