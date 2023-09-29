@@ -406,27 +406,154 @@
 
 // 25.5
 
-class User {
-    #phone;
+// class User {
+//     #phone;
     
-    constructor(name, phone) {
-        this.name = name;
-        this.#phone = phone;
-    }
+//     constructor(name, phone) {
+//         this.name = name;
+//         this.#phone = phone;
+//     }
     
-    getPhone(isAdmin) {
-        if (isAdmin) {
-            return this.#phone;
-        } else {
-            const parts = this.#phone.split('-');
-            const maskedPhone = `${parts[0]}-******-${parts[parts.length - 1]}`;
-            return maskedPhone;
+//     getPhone(isAdmin) {
+//         if (isAdmin) {
+//             return this.#phone;
+//         } else {
+//             const parts = this.#phone.split('-');
+//             const maskedPhone = `${parts[0]}-******-${parts[parts.length - 1]}`;
+//             return maskedPhone;
+//         }
+//     }
+// }
+// let user1 = new User('Mike', '067-888-88-99');
+// let user2 = new User('Tom', '099-888-88-99');
+// console.log(user1.getPhone(false));
+// console.log(user2.getPhone(false));
+// console.log(user1.getPhone(true));
+// console.log(user2.getPhone(true));
+
+// 26.1
+
+// let user = {};
+// Object.defineProperty(user, 'name', {
+//     value: 'John',
+//     writable: false,
+//     enumerable: true,
+//     configurable: false
+// });
+// Object.defineProperty(user, 'age', {
+//     value: 30,
+//     writable: false,
+//     enumerable: true,
+//     configurable: false
+// });
+// Object.defineProperty(user, 'id', {
+//     value: 12345,
+//     writable: false,
+//     enumerable: true,
+//     configurable: false
+// });
+// console.log(user.name);
+// console.log(user.age);
+
+// user.name = 'Bob';
+// user.age = 25;
+// console.log(user.name);
+// console.log(user.age);
+
+// delete user.id;
+// console.log(user.id);
+
+// 26.2
+
+// let dataBase = {
+//     dbName: 'user',
+//     dbType: 'MySQL'
+// }
+// let configurateDB = {
+//     token: '123',
+//     password: '567',
+//     user: 'admin'
+// }
+// Object.freeze(dataBase);
+// Object.defineProperty(configurateDB, 'token', {
+//     value: configurateDB.token,
+//     writable: true,
+//     enumerable: true,
+//     configurable: true
+// });
+// Object.defineProperty(configurateDB, 'password', {
+//     value: configurateDB.password,
+//     writable: true,
+//     enumerable: true,
+//     configurable: true
+// });
+// Object.defineProperty(configurateDB, 'user', {
+//     value: configurateDB.user,
+//     writable: true,
+//     enumerable: true,
+//     configurable: true
+// });
+// Object.preventExtensions(configurateDB);
+// dataBase.dbName = 'newDBName';
+// console.log(dataBase.dbName);
+// configurateDB.token = 'newToken';
+// console.log(configurateDB.token);
+// configurateDB.newProperty = 'newValue';
+// console.log(configurateDB.newProperty);
+// delete configurateDB.user;
+// console.log(configurateDB.user);
+
+// 26.3
+
+// let salaries = {
+//     frontend: 2000,
+//     backend: 1500,
+//     design: 1000
+// };
+// Object.defineProperty(salaries, 'addSalaries', {
+//     set(newSalaries) {
+//         newSalaries.forEach((newSalary) => {
+//             const [position, salary] = newSalary.split(': ');
+//             this[position] = parseInt(salary);
+//         });
+//     },
+//     enumerable: true
+// });
+// Object.defineProperty(salaries, 'sum', {
+//     get() {
+//         let sum = 0;
+//         for (salary in this) {
+//             if (!isNaN(this[salary])) {
+//                 sum += this[salary];
+//             }
+//         }
+//         console.log(sum);
+//     },
+//     enumerable: false
+// });
+// salaries.addSalaries = ['frontend: 2500', 'backend: 1750', 'design: 1300', 'manager: 800'];
+// console.log(salaries);
+// salaries.sum;
+
+// 26.4
+
+let user = {
+    name: 'Mike',
+    surname: 'Davis',
+    age: 25,
+};
+Object.defineProperty(user, 'userInfo', {
+    get() {
+        let infoString = '';
+        for (const key in this) {
+            if (this.hasOwnProperty(key)) {
+                infoString += `${key}: ${this[key]}, `;
+            }
         }
-    }
-}
-let user1 = new User('Mike', '067-888-88-99');
-let user2 = new User('Tom', '099-888-88-99');
-console.log(user1.getPhone(false));
-console.log(user2.getPhone(false));
-console.log(user1.getPhone(true));
-console.log(user2.getPhone(true));
+        infoString = infoString.slice(0, -2);
+        return infoString;
+    },
+});
+console.log(user.userInfo);
+user.login = 'MK_18';
+console.log(user.userInfo);
