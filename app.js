@@ -537,23 +537,96 @@
 
 // 26.4
 
-let user = {
-    name: 'Mike',
-    surname: 'Davis',
-    age: 25,
-};
-Object.defineProperty(user, 'userInfo', {
-    get() {
-        let infoString = '';
-        for (const key in this) {
-            if (this.hasOwnProperty(key)) {
-                infoString += `${key}: ${this[key]}, `;
-            }
+// let user = {
+//     name: 'Mike',
+//     surname: 'Davis',
+//     age: 25,
+// };
+// Object.defineProperty(user, 'userInfo', {
+//     get() {
+//         let infoString = '';
+//         for (const key in this) {
+//             if (this.hasOwnProperty(key)) {
+//                 infoString += `${key}: ${this[key]}, `;
+//             }
+//         }
+//         infoString = infoString.slice(0, -2);
+//         return infoString;
+//     },
+// });
+// console.log(user.userInfo);
+// user.login = 'MK_18';
+// console.log(user.userInfo);
+
+// 27.1
+
+// let car = {
+//     type: electric,
+//     wheels: 4,
+// }
+// let sportCar = {
+//     doors: 2
+// }
+// 27.1.1
+// let sportCar = Object.create(car);
+// sportCar.doors = 2;
+// console.log(sportCar.type);
+// console.log(sportCar.wheels);
+// console.log(sportCar.doors);
+// 27.1.2
+// let passengerCar = Object.create(car);
+// passengerCar.doors = 4;
+// console.log(passengerCar.type);
+// console.log(passengerCar.wheels);
+// console.log(passengerCar.doors);
+// 27.1.3
+// let toyCar = Object.create(sportCar);
+// toyCar.type = 'toy';
+// console.log(toyCar.type);
+// console.log(toyCar.wheels);
+// console.log(toyCar.doors);
+// 27.2
+// let employees = {
+//     pay(month, sum) {
+//         if (!this.wallet) {
+//             this.wallet = {};
+//         }
+//         this.wallet[month] = sum;
+//     }
+// };
+// let frontendDeveloper = {
+//     name: 'Mike',
+// };
+// Object.setPrototypeOf(frontendDeveloper, employees);
+// let backendDeveloper = {
+//     name: 'Bob',
+// };
+// Object.setPrototypeOf(backendDeveloper, employees);
+// backendDeveloper.pay('June', 1500);
+// console.log(backendDeveloper.wallet.June); 
+// console.log(frontendDeveloper.wallet);
+// 27.3
+// function User (name, age) {
+//     this.name = name;
+//     this.age = age;
+// }
+// let user_1 = new User ('Mike', 18);
+// let user_2 = new User('Bob', 25);
+// console.log(user_2);
+// 27.4
+function UserType(name) {
+    for (let i = 0; i < name.length; ++i) {
+        this [i] = name[i];
+        if (i + 1 == name.length) {
+            Object.defineProperty(this, 'length', {
+                enumerable: true,
+                writable: false,
+                configurable: true,
+                value: i + 1
+            });
         }
-        infoString = infoString.slice(0, -2);
-        return infoString;
-    },
-});
-console.log(user.userInfo);
-user.login = 'MK_18';
-console.log(user.userInfo);
+    }
+    Object.setPrototypeOf(this, Array.prototype);
+}
+let admins = new UserType(['Mike', 'Bob', 'Nikola']);
+console.log(admins.join('; ')); // Mike; Bob; Nikola
