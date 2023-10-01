@@ -614,19 +614,187 @@
 // let user_2 = new User('Bob', 25);
 // console.log(user_2);
 // 27.4
-function UserType(name) {
-    for (let i = 0; i < name.length; ++i) {
-        this [i] = name[i];
-        if (i + 1 == name.length) {
-            Object.defineProperty(this, 'length', {
-                enumerable: true,
-                writable: false,
-                configurable: true,
-                value: i + 1
-            });
+// function UserType(name) {
+//     for (let i = 0; i < name.length; ++i) {
+//         this [i] = name[i];
+//         if (i + 1 == name.length) {
+//             Object.defineProperty(this, 'length', {
+//                 enumerable: true,
+//                 writable: false,
+//                 configurable: true,
+//                 value: i + 1
+//             });
+//         }
+//     }
+//     Object.setPrototypeOf(this, Array.prototype);
+// }
+// let admins = new UserType(['Mike', 'Bob', 'Nikola']);
+// console.log(admins.join('; '));
+
+// 28.1
+// function count(expression) {
+//     const values = getValues(expression);
+//     switch (values[1]) {
+//         case '+':
+//             return showResult(sum(values));
+//         case '-':
+//             return showResult(subtract(values));
+//         case '*':
+//             return showResult(multiply(values));
+//         case '/':
+//             return showResult(divide(values));
+//     }
+//     function showResult(value) {
+//         return value;
+//     }
+// }
+// function sum(values) {
+//     return values[0] + values[2];
+// }
+// function subtract(values) {
+//     return values[0] - values[2];
+// }
+// function multiply(values) {
+//     return values[0] * values[2];
+// }
+// function divide(values) {
+//     return values[0] / values[2];
+// }
+// function getValues(expression) {
+//     let values = expression.split(/([\+\-\*\/])/);
+//     values = [parseInt(values[0]), values[1], parseInt(values[2])];
+//     return values;
+// }
+// console.log(count('5+2'));
+
+// 28.2
+// function count(expression) {
+//     function getValues(expression) {
+//         let values = [...expression];
+//         return values;
+//     }
+//     let values = getValues(expression);
+//     if (values[1] === '/' && values[2] === '0') {
+//         throw new Error("Can't divide by 0");
+//     }
+//     switch (values[1]) {
+//         case '+':
+//             return showResult(sum(values));
+//         case '-':
+//             return showResult(subtract(values));
+//         case '*':
+//             return showResult(multiply(values));
+//         case '/':
+//             return showResult(divide(values));
+//     }
+//     function showResult(value) {
+//         return value;
+//     }
+// }
+// function sum(values) {
+//     return values[0] + values[2];
+// }
+// function subtract(values) {
+//     return values[0] - values[2];
+// }
+// function multiply(values) {
+//     return values[0] * values[2];
+// }
+// function divide(values) {
+//     return values[0] / values[2];
+// }
+// try {
+//     console.log(count('5+2'));
+//     console.log(count('5/0'));
+// } catch (error) {
+//     console.error(error.name + ': ' + error.message);
+// }
+
+// 28.3
+// function count(expression) {
+//     function getValues(expression) {
+//         let values = [...expression];
+//         return values;
+//     }
+//     let values;
+//     try {
+//         if (typeof expression !== 'string') {
+//             throw new Error("Please write in string format.");
+//         }
+//         values = getValues(expression);
+//     } catch (error) {
+//         console.log(error.name + ': ' + error.message);
+//         values = [0, '+', 0];
+//     }
+//     switch (values[1]) {
+//         case '+':
+//             return showResult(sum(values));
+//         case '-':
+//             return showResult(subtract(values));
+//         case '*':
+//             return showResult(multiply(values));
+//         case "/":
+//             return showResult(divide(values));
+//     }
+//     function showResult(value) {
+//         return value;
+//     }
+// }
+// function sum(values) {
+//     return +values[0] + +values[2];
+// }
+// function subtract(values) {
+//     return +values[0] - +values[2];
+// }
+// function multiply(values) {
+//     return +values[0] * +values[2];
+// }
+// function divide(values) {
+//     if (+values[2] === 0) {
+//         throw new Error("Can't divide by 0");
+//     }
+//     return +values[0] / +values[2];
+// }
+// try {
+//     console.log(count('5*2'));
+//     console.log(count(5*2));
+//     console.log(count('5/0'));
+// } catch (error) {
+//     console.error(error.name + ': ' + error.message);
+// }
+
+//28.4
+function MakeUsers(name, age) {
+    this.name = name;
+    this.age = age;
+}
+function getUserAge() {
+    let age = prompt('Please enter your age:');
+    if (age === null) {
+        throw new Error('User canceled age input');
+    }
+    age = parseInt(age);
+    if (isNaN(age) || age < 0) {
+        throw new Error('Invalid age input');
+    }
+    return age;
+}
+let user;
+try {
+    const name = prompt('Please enter your name:');
+    if (name === null) {
+        throw new Error('User canceled name input');
+    }
+    const age = getUserAge();
+    user = new MakeUsers(name, age);
+    function showMovie(user) {
+        if (user.age >= 18) {
+            console.log('You can watch this movie');
+        } else {
+            console.log('Sorry, you are too young');
         }
     }
-    Object.setPrototypeOf(this, Array.prototype);
+    showMovie(user);
+} catch (error) {
+    console.error(error.name + ': ' + error.message);
 }
-let admins = new UserType(['Mike', 'Bob', 'Nikola']);
-console.log(admins.join('; ')); // Mike; Bob; Nikola
