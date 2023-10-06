@@ -764,37 +764,37 @@
 // }
 
 //28.4
-function MakeUsers(name, age) {
-    this.name = name;
-    this.age = age;
-}
-function getUserAge() {
-    let age = prompt('Please enter your age:');
-    if (age === null) {
-        throw new Error('User canceled age input');
-    }
-    age = parseInt(age);
-    if (isNaN(age) || age < 0) {
-        throw new Error('Invalid age input');
-    }
-    return age;
-}
-let user;
-try {
-    const name = prompt('Please enter your name:');
-    if (name === null) {
-        throw new Error('User canceled name input');
-    }
-    const age = getUserAge();
-    user = new MakeUsers(name, age);
-    function showMovie(user) {
-        if (user.age >= 18) {
-            console.log('You can watch this movie');
-        } else {
-            console.log('Sorry, you are too young');
-        }
-    }
-    showMovie(user);
-} catch (error) {
-    console.error(error.name + ': ' + error.message);
-}
+// function MakeUsers(name, age) {
+//     this.name = name;
+//     this.age = age;
+// }
+// function getUserAge() {
+//     let age = prompt('Please enter your age:');
+//     if (age === null) {
+//         throw new Error('User canceled age input');
+//     }
+//     age = parseInt(age);
+//     if (isNaN(age) || age < 0) {
+//         throw new Error('Invalid age input');
+//     }
+//     return age;
+// }
+// let user;
+// try {
+//     const name = prompt('Please enter your name:');
+//     if (name === null) {
+//         throw new Error('User canceled name input');
+//     }
+//     const age = getUserAge();
+//     user = new MakeUsers(name, age);
+//     function showMovie(user) {
+//         if (user.age >= 18) {
+//             console.log('You can watch this movie');
+//         } else {
+//             console.log('Sorry, you are too young');
+//         }
+//     }
+//     showMovie(user);
+// } catch (error) {
+//     console.error(error.name + ': ' + error.message);
+// }
