@@ -73,86 +73,86 @@
 //   }
 //   getData('https://jsonplaceholder.typicode.com/todos/');
   //31.3
-  async function fetchDataAndDisplay() {
-    try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/todos/');
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
+  // async function fetchDataAndDisplay() {
+  //   try {
+  //     const response = await fetch('https://jsonplaceholder.typicode.com/todos/');
+  //     if (!response.ok) {
+  //       throw new Error('Network response was not ok');
+  //     }
   
-      const data = await response.json();
-      const userAData = data.filter(item => item.title.toLowerCase().startsWith('a'));
-      const userABData = userAData.filter(item => item.title.toLowerCase().startsWith('ab'));
+  //     const data = await response.json();
+  //     const userAData = data.filter(item => item.title.toLowerCase().startsWith('a'));
+  //     const userABData = userAData.filter(item => item.title.toLowerCase().startsWith('ab'));
 
-      const userADiv = document.querySelector('.user-a');
-      const userABDiv = document.querySelector('.user-ab');
+  //     const userADiv = document.querySelector('.user-a');
+  //     const userABDiv = document.querySelector('.user-ab');
   
-      userAData.forEach(obj => {
-        const objString = JSON.stringify(obj);
-        userADiv.insertAdjacentHTML('beforeend', objString + '<br>');
-      });
+  //     userAData.forEach(obj => {
+  //       const objString = JSON.stringify(obj);
+  //       userADiv.insertAdjacentHTML('beforeend', objString + '<br>');
+  //     });
   
-      userABData.forEach(obj => {
-        const objString = JSON.stringify(obj);
-        userABDiv.insertAdjacentHTML('beforeend', objString + '<br>');
-      });
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
-  fetchDataAndDisplay();
+  //     userABData.forEach(obj => {
+  //       const objString = JSON.stringify(obj);
+  //       userABDiv.insertAdjacentHTML('beforeend', objString + '<br>');
+  //     });
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //   }
+  // }
+  // fetchDataAndDisplay();
 
 //31.4
-async function fetchDataAndDisplay() {
-    try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/todos/');
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
+// async function fetchDataAndDisplay() {
+//     try {
+//       const response = await fetch('https://jsonplaceholder.typicode.com/todos/');
+//       if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//       }
   
-      const data = await response.json();
-      const userAData = data.filter(item => item.title.toLowerCase().startsWith('a'));
-      const userABData = userAData.filter(item => item.title.toLowerCase().startsWith('ab'));
+//       const data = await response.json();
+//       const userAData = data.filter(item => item.title.toLowerCase().startsWith('a'));
+//       const userABData = userAData.filter(item => item.title.toLowerCase().startsWith('ab'));
   
-      const userADiv = document.querySelector('.user-a');
-      const userABDiv = document.querySelector('.user-ab');
+//       const userADiv = document.querySelector('.user-a');
+//       const userABDiv = document.querySelector('.user-ab');
   
-      const addAButton = document.querySelector('.add-a');
-      addAButton.addEventListener('click', () => {
-        userADiv.innerHTML = '';
-        userAData.forEach(obj => {
-          const objString = JSON.stringify(obj);
-          userADiv.insertAdjacentHTML('beforeend', objString + '<br>');
-        });
-      });
+//       const addAButton = document.querySelector('.add-a');
+//       addAButton.addEventListener('click', () => {
+//         userADiv.innerHTML = '';
+//         userAData.forEach(obj => {
+//           const objString = JSON.stringify(obj);
+//           userADiv.insertAdjacentHTML('beforeend', objString + '<br>');
+//         });
+//       });
   
-      const addABButton = document.querySelector('.add-ab');
-      addABButton.addEventListener('click', () => {
-        userABDiv.innerHTML = '';
-        userABData.forEach(obj => {
-          const objString = JSON.stringify(obj);
-          userABDiv.insertAdjacentHTML('beforeend', objString + '<br>');
-        });
-      });
+//       const addABButton = document.querySelector('.add-ab');
+//       addABButton.addEventListener('click', () => {
+//         userABDiv.innerHTML = '';
+//         userABData.forEach(obj => {
+//           const objString = JSON.stringify(obj);
+//           userABDiv.insertAdjacentHTML('beforeend', objString + '<br>');
+//         });
+//       });
   
-      const addAllButton = document.querySelector('.add-all');
-      addAllButton.addEventListener('click', () => {
-        userADiv.innerHTML = '';
-        userAData.forEach(obj => {
-          const objString = JSON.stringify(obj);
-          userADiv.insertAdjacentHTML('beforeend', objString + '<br>');
-        });
+//       const addAllButton = document.querySelector('.add-all');
+//       addAllButton.addEventListener('click', () => {
+//         userADiv.innerHTML = '';
+//         userAData.forEach(obj => {
+//           const objString = JSON.stringify(obj);
+//           userADiv.insertAdjacentHTML('beforeend', objString + '<br>');
+//         });
   
-        userABDiv.innerHTML = '';
-        userABData.forEach(obj => {
-          const objString = JSON.stringify(obj);
-          userABDiv.insertAdjacentHTML('beforeend', objString + '<br>');
-        });
-      });
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
+//         userABDiv.innerHTML = '';
+//         userABData.forEach(obj => {
+//           const objString = JSON.stringify(obj);
+//           userABDiv.insertAdjacentHTML('beforeend', objString + '<br>');
+//         });
+//       });
+//     } catch (error) {
+//       console.error('Error:', error);
+//     }
+//   }
   
-  fetchDataAndDisplay();
-  
+//   fetchDataAndDisplay();
+// 32.1
