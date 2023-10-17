@@ -155,4 +155,109 @@
 //   }
   
 //   fetchDataAndDisplay();
-// 32.1
+// 34.1
+// const TaxMixin = {
+//   vat() {
+//     return this.price + this.price * 0.2;
+//   },
+
+//   exciseDuty() {
+//     return (this.price + this.price * 0.3) + 10;
+//   },
+
+//   singleTax() {
+//     return this.price + 1;
+//   }
+// };
+// class Cola {
+//   constructor (brand, price) {
+//     this.brand = brand;
+//     this.price = price;
+//   }
+// }
+// Object.assign(Cola.prototype, TaxMixin);
+// class Whiskey {
+//   constructor (brand, price) {
+//     this.brand = brand;
+//     this.price = price;
+//   }
+// }
+// Object.assign(Whiskey.prototype, TaxMixin);
+// class Ice {
+//   constructor (price) {
+//     this.price = price;
+//   }
+// }
+// Object.assign(Ice.prototype, TaxMixin);
+// let cocaCola = new Cola('Coca-Cola', 10);
+// let johnwalker = new Whiskey('john walker', 100);
+// let ice = new Ice(2);
+// console.log(cocaCola.vat());
+// console.log(johnwalker.exciseDuty());
+// console.log(ice.singleTax());
+// 34.2
+// function uniqueString(input) {
+//   const words = input.split(';').map(word => word.trim());
+//   const uniqueWords = new Set();
+//   for (const word of words) {
+//     uniqueWords.add(word);
+//   }
+//   return Array.from(uniqueWords);
+// }
+// console.log(uniqueString("cherry; orange; cherry; banana; banana"));
+// 34.3
+// function getUniquePhoneNames() {
+//   const phoneList = document.querySelectorAll('.shop-list li');
+//   const uniquePhoneNames = new Set();
+//   phoneList.forEach((li) => {
+//     uniquePhoneNames.add(li.textContent);
+//   });
+//   return uniquePhoneNames;
+// }
+// function createUniquePhoneList() {
+//   const uniquePhoneNames = getUniquePhoneNames();
+//   const list = document.createElement('ul');
+//   for (let item of uniquePhoneNames) {
+//     let li = document.createElement('li');
+//     li.textContent = item;
+//     list.appendChild(li);
+//   }
+//   document.body.appendChild(list);
+// }
+// createUniquePhoneList();
+// 34.4
+let mike = {name: 'Mike', age: 18}
+let bob = {name: 'Bob', age: 25}
+let nikola = {name: 'Nikola', age: 32}
+function createUserVisitsCounter() {
+  const userVisits = new Map();
+
+  function updateUserVisits(user) {
+    if (userVisits.has(user)) {
+      userVisits.set(user, userVisits.get(user) + 1);
+    } else {
+      userVisits.set(user, 1);
+    }
+  }
+
+  function getVisits(user) {
+    return userVisits.get(user) || 0;
+  }
+
+  return { updateUserVisits, getVisits };
+}
+
+const mikeCounter = createUserVisitsCounter();
+const bobCounter = createUserVisitsCounter();
+const nikolaCounter = createUserVisitsCounter();
+
+mikeCounter.updateUserVisits(mike);
+mikeCounter.updateUserVisits(mike);
+mikeCounter.updateUserVisits(mike);
+bobCounter.updateUserVisits(bob);
+nikolaCounter.updateUserVisits(nikola);
+nikolaCounter.updateUserVisits(nikola);
+
+console.log(mikeCounter.getVisits(mike));
+console.log(bobCounter.getVisits(bob));
+console.log(nikolaCounter.getVisits(nikola));
