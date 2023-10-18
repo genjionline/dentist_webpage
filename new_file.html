@@ -59,7 +59,7 @@
         mocha.run();
     </script> -->
     <!-- 34.3 -->
-<ul class="shop-list">
+<!-- <ul class="shop-list">
     <li>Iphone 13</li>
     <li>Iphone 14</li>
     <li>Samsung S21</li>
@@ -68,6 +68,17 @@
     <li>Samsung S22</li>
     <li>Samsung S22</li>
     <li>Iphone 14 ProMax</li>
-</ul>
+</ul> -->
+<!-- 35.4 -->
+<input type="text" id="inputText">
 </body>
+<script>
+    let inputElement = document.getElementById('inputText');
+    if (localStorage.getItem('userInput')) {
+      inputElement.value = localStorage.getItem('userInput');
+    }
+    inputElement.addEventListener('input', function () {
+      localStorage.setItem('userInput', inputElement.value);
+    });
+    </script>
 </html>

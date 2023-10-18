@@ -226,38 +226,113 @@
 // }
 // createUniquePhoneList();
 // 34.4
-let mike = {name: 'Mike', age: 18}
-let bob = {name: 'Bob', age: 25}
-let nikola = {name: 'Nikola', age: 32}
-function createUserVisitsCounter() {
-  const userVisits = new Map();
+// let mike = {name: 'Mike', age: 18}
+// let bob = {name: 'Bob', age: 25}
+// let nikola = {name: 'Nikola', age: 32}
+// function createUserVisitsCounter() {
+//   const userVisits = new Map();
 
-  function updateUserVisits(user) {
-    if (userVisits.has(user)) {
-      userVisits.set(user, userVisits.get(user) + 1);
-    } else {
-      userVisits.set(user, 1);
-    }
-  }
+//   function updateUserVisits(user) {
+//     if (userVisits.has(user)) {
+//       userVisits.set(user, userVisits.get(user) + 1);
+//     } else {
+//       userVisits.set(user, 1);
+//     }
+//   }
 
-  function getVisits(user) {
-    return userVisits.get(user) || 0;
-  }
+//   function getVisits(user) {
+//     return userVisits.get(user) || 0;
+//   }
 
-  return { updateUserVisits, getVisits };
-}
+//   return { updateUserVisits, getVisits };
+// }
 
-const mikeCounter = createUserVisitsCounter();
-const bobCounter = createUserVisitsCounter();
-const nikolaCounter = createUserVisitsCounter();
+// const mikeCounter = createUserVisitsCounter();
+// const bobCounter = createUserVisitsCounter();
+// const nikolaCounter = createUserVisitsCounter();
 
-mikeCounter.updateUserVisits(mike);
-mikeCounter.updateUserVisits(mike);
-mikeCounter.updateUserVisits(mike);
-bobCounter.updateUserVisits(bob);
-nikolaCounter.updateUserVisits(nikola);
-nikolaCounter.updateUserVisits(nikola);
+// mikeCounter.updateUserVisits(mike);
+// mikeCounter.updateUserVisits(mike);
+// mikeCounter.updateUserVisits(mike);
+// bobCounter.updateUserVisits(bob);
+// nikolaCounter.updateUserVisits(nikola);
+// nikolaCounter.updateUserVisits(nikola);
 
-console.log(mikeCounter.getVisits(mike));
-console.log(bobCounter.getVisits(bob));
-console.log(nikolaCounter.getVisits(nikola));
+// console.log(mikeCounter.getVisits(mike));
+// console.log(bobCounter.getVisits(bob));
+// console.log(nikolaCounter.getVisits(nikola));
+// 35.1
+// fetch('home-work-data.json')
+//   .then(response => response.json())
+//   .then(data => {
+//     showAdminName(data);
+//   })
+//   .catch(error => console.error(error));
+
+// function showAdminName(data) {
+//   for (const key in data) {
+//     const user = data[key];
+//     if (user.isAdmin === true) {
+//       console.log(`Admin's name: ${user.name}`);
+//     }
+//   }
+// }
+// 35.2
+// let nikola = { firstName: 'Nikola', lastName: 'Tesla' };
+// let bob = { firstname: 'Bob' };
+// let mike = { lastname: 'Smith' };
+// let michael = {};
+
+// let getFullName = function (user) {
+//   return `${user.firstName} ${user.lastName}`;
+// };
+// console.log(getFullName(nikola))
+// console.log(getFullName(bob))
+// console.log(getFullName(mike))
+// console.log(getFullName(michael))
+// let handler = {
+//   get(target, prop) {
+//     if (prop === 'firstName') {
+//       return target[prop] || '';
+//     } else if (prop === 'lastname') {
+//       return target[prop] || '';
+//     } else {
+//       return getFullName(target);
+//     }
+//   },
+// };
+
+// let proxyNikola = new Proxy(nikola, handler);
+// let proxyBob = new Proxy(bob, handler);
+// let proxyMike = new Proxy(mike, handler);
+// let proxyMichael = new Proxy(michael, handler);
+
+// console.log(getFullName(proxyNikola));
+// console.log(getFullName(proxyBob));
+// console.log(getFullName(proxyMike));
+// console.log(getFullName(proxyMichael));
+// 35.3
+// let users = [
+//   {name: 'Nikola', age: 18, id: 1},
+//   {name: 'Bob', age: 25, id: 2},
+//   {name: 'Mike', age: 32, id: 3},
+// ];
+
+// localStorage.setItem('usersData', JSON.stringify(users));
+// function sayHelloToUser(id) {
+//   let usersData = localStorage.getItem('usersData');
+
+//   if (usersData) {
+//     let users = JSON.parse(usersData);
+//     let user = users.find((user) => user.id === id);
+
+//     if (user) {
+//       console.log(`Hello: ${user.name}`);
+//     } else {
+//       console.log('User not found');
+//     }
+//   } else {
+//     console.log('No user data in localStorage');
+//   }
+// }
+// sayHelloToUser(3);
